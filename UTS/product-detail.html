@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Produk - Yak Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Yak Store</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="products.html" class="active">Produk</a>
+                <a href="register.html">Daftar Member</a>
+                <a href="contact.html">Kontak</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2 id="detail-title">Detail Produk Sepatu</h2>
+            <div style="display: flex; gap: 40px; margin-top: 30px;">
+                <div style="flex: 1;">
+                    <img src="imgsepatu/glide-runner.jpg" alt="Gambar Detail Produk" class="product-image"> 
+                </div>
+                <div style="flex: 1;">
+                    <h3 id="product-name">The Glide Runner 2.0 (Default)</h3>
+                    <p class="price" style="font-size: 1.8rem; margin: 15px 0;">Rp 850.000</p>
+                    <p>Konten di sini statis. Namun, Anda berhasil mengirimkan kode unik produk melalui URL!</p>
+                    <p>Kode produk yang Anda klik adalah: <strong id="product-code-display">Tidak ditemukan</strong></p>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li>Kategori: Sepatu Lari</li>
+                        <li>Kelebihan: Ringan, Responsif, Busa Tebal</li>
+                    </ul>
+
+                    <label for="size" style="display: block; margin-top: 20px; font-weight: bold;">Pilih Ukuran:</label>
+                    <select id="size" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                    </select>
+                    <br>
+                    <button class="button">Masukkan Keranjang</button>
+                    <a href="products.html" class="button-small" style="margin-left: 10px;">Kembali ke Katalog</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Yak Store. Toko Sepatu Online Terbaik Anda.</p>
+        </div>
+    </footer>
+    
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const productCode = urlParams.get('product');
+
+        if (productCode) {
+            document.getElementById('product-code-display').textContent = productCode;
+            document.getElementById('detail-title').textContent = 'Detail Produk Sepatu (' + productCode.toUpperCase().replace('-', ' ') + ')';
+            document.getElementById('product-name').textContent = 'Produk Klik: ' + productCode.toUpperCase().replace('-', ' ');
+        }
+    </script>
+</body>
+</html>
